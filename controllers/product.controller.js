@@ -7,31 +7,25 @@ class UserController {
         const itemsOffset = itemPerPage * page;
         const categories = filters?.categories.map((i) => '\'' + i + '\'');
 
-
-        const products = await db.query(`
-            SELECT * FROM products
+        const selectProductsTemplate = (select, categories, searchText) => `SELECT ${select} FROM products
             JOIN product_images USING(product_id)
             WHERE 
                 (${categories.length > 0 ? `mastercategory IN(${categories})` : 'TRUE'})
-                AND (${searchText.length > 0 ? `productdisplayname LIKE('%${searchText}%')` : 'TRUE'})
+                AND (${searchText.length > 0 ? `productdisplayname LIKE('%${searchText}%')` : 'TRUE'})`;
+
+        const products = await db.query(`
+            ${selectProductsTemplate('*', categories, searchText)}
             ${sortByYear.length > 0 ? `ORDER BY year ${sortByYear === 'Year up' ? 'ASC' : 'DESC'}` : ''}
             OFFSET ${itemsOffset}
             LIMIT ${itemPerPage};
             `)
 
-        const pageCount = await db.query(`
-            SELECT COUNT(*) FROM products
-            JOIN product_images USING(product_id)
-            WHERE 
-                (${categories.length > 0 ? `mastercategory IN(${categories})` : 'TRUE'})
-                AND (${searchText.length > 0 ? `productdisplayname LIKE('%${searchText}%')` : 'TRUE'});
-            `);
-
+        const allItemsCount = await db.query(`${selectProductsTemplate('COUNT(*)', categories, searchText)};`);
 
         res.json({
             products: products.rows,
             page: (req?.query?.page ?? 0),
-            itemsCount: pageCount.rows[0].count
+            itemsCount: allItemsCount.rows[0].count
         })
     }
 
@@ -46,9 +40,6 @@ class UserController {
         })
     }
 
-    async getSubCategories(req, res) {
-
-    }
 
     async getOneProduct(req, res) {
 
