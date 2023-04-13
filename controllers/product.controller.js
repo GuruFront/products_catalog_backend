@@ -5,27 +5,28 @@ class UserController {
         const {filters, searchText, page = 0, sortByYear = ""} = req.body;
         const itemPerPage = 8;
         const itemsOffset = itemPerPage * page;
-        const categories = filters?.categories.map((i)=>'\''+ i + '\'');
+        const categories = filters?.categories.map((i) => '\'' + i + '\'');
 
 
         const products = await db.query(`
-            SELECT *
-              FROM products
-              JOIN product_images USING(product_id)
-              ${categories.length > 0 ? `WHERE mastercategory IN(${categories})` : ''}
-              ${searchText.length > 0 ? `AND productdisplayname LIKE('%${searchText}%')` : ''}
-              ${sortByYear.length > 0 ? `ORDER BY year ${sortByYear === 'Year up' ? 'ASC' : 'DESC'}` : ''}
-              OFFSET ${itemsOffset}
-              LIMIT ${itemPerPage};
+            SELECT * FROM products
+            JOIN product_images USING(product_id)
+            WHERE 
+                (${categories.length > 0 ? `mastercategory IN(${categories})` : 'TRUE'})
+                AND (${searchText.length > 0 ? `productdisplayname LIKE('%${searchText}%')` : 'TRUE'})
+            ${sortByYear.length > 0 ? `ORDER BY year ${sortByYear === 'Year up' ? 'ASC' : 'DESC'}` : ''}
+            OFFSET ${itemsOffset}
+            LIMIT ${itemPerPage};
             `)
 
         const pageCount = await db.query(`
             SELECT COUNT(*) FROM products
             JOIN product_images USING(product_id)
-            ${categories.length > 0 ? `WHERE mastercategory IN(${categories})` : ''}
-              ${searchText.length > 0 ? `AND productdisplayname LIKE('%${searchText}%')` : ''}
-              ${sortByYear.length > 0 ? `ORDER BY year ${sortByYear === 'Year up' ? 'ASC' : 'DESC'}` : ''}
-            ;`);
+            WHERE 
+                (${categories.length > 0 ? `mastercategory IN(${categories})` : 'TRUE'})
+                AND (${searchText.length > 0 ? `productdisplayname LIKE('%${searchText}%')` : 'TRUE'});
+            `);
+
 
         res.json({
             products: products.rows,
