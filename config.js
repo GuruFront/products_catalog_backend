@@ -1,12 +1,12 @@
 const env = process.env;
 
 const config = {
-  db: { /* do not put password or any sensitive info here */
-    host: env.DB_HOST,
-    port: env.DB_PORT,
-    user: env.DB_USER',
-    password: env.DB_PASSWORD,
-    database: env.DB_NAME,
+  db: {
+    host: env.DB_HOST || 'hattie.db.elephantsql.com',
+    port: env.DB_PORT || '5432',
+    user: env.DB_USER || 'clkjrcnk',
+    password: env.DB_PASSWORD || 'xMXM1Q0lhUgaLHHutFG6FVnKSNKpWeDq',
+    database: env.DB_NAME || 'clkjrcnk',
   },
   listPerPage: env.LIST_PER_PAGE || 10,
 };
