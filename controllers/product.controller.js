@@ -7,7 +7,8 @@ class UserController {
         const itemsOffset = itemPerPage * page;
         const categories = filters?.categories.map((i) => '\'' + i + '\'');
 
-        const selectProductsTemplate = (select, categories, searchText) => `SELECT ${select} FROM products
+        const selectProductsTemplate = (select, categories, searchText) => `
+            SELECT ${select} FROM products
             JOIN product_images USING(product_id)
             WHERE 
                 (${categories.length > 0 ? `mastercategory IN(${categories})` : 'TRUE'})
