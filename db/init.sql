@@ -16,5 +16,3 @@ CREATE TABLE product_images(
  	product_img text
 );
 
-COPY products FROM './products.csv' DELIMITER ',' CSV HEADER;
-COPY product_images FROM './product_images.csv' DELIMITER ',' CSV HEADER;

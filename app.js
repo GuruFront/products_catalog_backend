@@ -1,6 +1,6 @@
 const express = require('express');
 const productRouter = require('./routes/product_routes')
-// const cors = require('cors');
+ const cors = require('cors');
 
 
 const PORT = process.env.PORT || 8080
@@ -8,9 +8,9 @@ const PORT = process.env.PORT || 8080
 const app = express();
 
 
-// app.use(cors({
-//     origin: 'http://localhost:3000'
-// }));
+app.use(cors({
+    origin: 'https://product-catalog-front-git-main-ruslangunder-gmailcom.vercel.app'
+}));
 
 
 app.use(express.json())
