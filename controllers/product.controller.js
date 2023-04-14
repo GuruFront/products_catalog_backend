@@ -1,6 +1,6 @@
 const db = require('../services/db')
 
-class UserController {
+class ProductController {
     async getProductsByPage(req, res) {
         const {filters, searchText, page = 0, sortByYear = ""} = req.body;
         const itemPerPage = 8;
@@ -55,4 +55,4 @@ class UserController {
     }
 }
 
-module.exports = new UserController()
+module.exports = new ProductController()
