@@ -1,6 +1,6 @@
 CREATE TABLE products(
 	product_id int PRIMARY KEY,
-    gender text,
+	gender text,
 	masterCategory text,
 	subCategory text,
 	articleType text,
