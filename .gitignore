@@ -2,7 +2,6 @@ config.js
 package-lock.json
 .idea
 
-.env.DEV
 
 # Logs
 logs

@@ -1,6 +1,4 @@
 const {Pool} = require('pg');
-console.log("process.env.DEVELOPMENT", process.env.DEVELOPMENT)
-
 
 require('dotenv').config({
     path: `.env${process.env.DEVELOPMENT ? '.DEV' : ''}`
