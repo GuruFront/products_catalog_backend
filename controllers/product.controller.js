@@ -40,19 +40,6 @@ class ProductController {
             categories: categories.rows.map((i) => i.mastercategory)
         })
     }
-
-
-    async getOneProduct(req, res) {
-
-    }
-
-    async updateProduct(req, res) {
-
-    }
-
-    async deleteProduct(req, res) {
-
-    }
 }
 
 module.exports = new ProductController()
