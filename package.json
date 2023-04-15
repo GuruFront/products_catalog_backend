@@ -12,7 +12,9 @@
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "~4.16.1",
+    "knex": "^2.4.2",
     "morgan": "~1.9.1",
+    "objection": "^3.0.1",
     "pg": "^8.5.1"
   },
   "devDependencies": {
