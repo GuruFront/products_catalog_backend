@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "nodejs-mysql",
+  "name": "nodejs-pgsql",
   "builds": [
     { "src": "app.js", "use": "@vercel/node" }
   ],
