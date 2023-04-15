@@ -6,10 +6,11 @@ Model.knex(knex);
 
 class ProductController {
     async getProductsByPage(req, res) {
-        const {filters, searchText, page = 0, sortByYear = ''} = req.body;
-        const itemPerPage = 8;
-        const itemsOffset = itemPerPage * page;
-        const categories = filters?.categories.map((i) => `${i}`);
+        const {filters, searchText, page, sortByYear = ''} = req.body
+        const itemPerPage = 18
+        const currentPage = page - 1
+        const itemsOffset = (itemPerPage * currentPage)
+        const categories = filters?.categories.map((i) => `${i}`)
 
         const conditions = (builder) => {
             categories.length > 0 ? builder.whereIn('mastercategory', categories) : null
@@ -19,7 +20,6 @@ class ProductController {
 
         const allItemsCount = await Product.query().where(conditions).count().first();
 
-
         const products = await Product.query()
             .withGraphFetched('images')
             .where(conditions)
@@ -28,11 +28,10 @@ class ProductController {
             .offset(itemsOffset)
             .limit(itemPerPage);
 
-
         res.json({
             products: products,
-            page: req?.query?.page ?? 0,
-            itemsCount: allItemsCount.count,
+            page: parseInt(page, 10) ?? 0,
+            pagesCount: Math.ceil(allItemsCount.count / itemPerPage),
         });
     }
 
