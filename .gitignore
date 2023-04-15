@@ -2,6 +2,8 @@ config.js
 package-lock.json
 .idea
 
+.env.DEV
+
 # Logs
 logs
 *.log
@@ -73,7 +75,7 @@ typings/
 .yarn-integrity
 
 # dotenv environment variables file
-.env
+.env.DEV
 .env.test
 
 # parcel-bundler cache (https://parceljs.org/)

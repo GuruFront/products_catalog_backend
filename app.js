@@ -9,8 +9,9 @@ const app = express();
 
 
 app.use(cors({
-    origin: 'https://product-catalog-front-git-main-ruslangunder-gmailcom.vercel.app'
-    //origin: 'http://localhost:3000'
+    origin: `${process.env.DEVELOPMENT ? 
+        'http://localhost:3000' :
+        'https://product-catalog-front-git-main-ruslangunder-gmailcom.vercel.app'}`
 }));
 
 

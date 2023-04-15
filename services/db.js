@@ -1,13 +1,18 @@
 const {Pool} = require('pg');
-const env = process.env;
+console.log("process.env.DEVELOPMENT", process.env.DEVELOPMENT)
+
+
+require('dotenv').config({
+    path: `.env${process.env.DEVELOPMENT ? '.DEV' : ''}`
+});
 
 const config = {
     db: {
-        host: env.DB_HOST,
-        port: env.DB_PORT,
-        user: env.DB_USER,
-        password: env.DB_PASSWORD,
-        database: env.DB_NAME,
+        host: process.env.DB_HOST,
+        port: process.env.DB_PORT,
+        user: process.env.DB_USER,
+        password: process.env.DB_PASSWORD,
+        database: process.env.DB_NAME,
     }
 };
 
