@@ -12,7 +12,7 @@ app.use(errorHandler);
 app.use(cors({
     origin: `${process.env.DEVELOPMENT ? 
         'http://localhost:3000'  :
-        'https://products-catalog-frontend.vercel.app'}`
+        'https://products-catalog-frontend-git-main-ruslangunder-gmailcom.vercel.app'}`
 }));
 app.use(express.json())
 app.use('/api', productRouter)
