@@ -3,8 +3,8 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "set DEVELOPMENT=true && nodemon ./src/app.js",
-    "start": "set PRODUCTION=true && nodemon ./src/app.js",
+    "dev": "set DEVELOPMENT=true && nodemon app.js",
+    "start": "set PRODUCTION=true && nodemon app.js",
     "test": "jest"
   },
   "dependencies": {
