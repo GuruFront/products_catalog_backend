@@ -32,7 +32,7 @@ services:
       - db
     volumes:
       - ./:/src
-      - /src/node_modules
+      - /node_modules
 volumes:
   db:
     driver: local
