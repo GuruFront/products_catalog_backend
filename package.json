@@ -3,8 +3,9 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "set DEVELOPMENT=true && nodemon app.js",
-    "start": "set PRODUCTION=true && nodemon app.js"
+    "dev": "set DEVELOPMENT=true && nodemon ./src/app.js",
+    "start": "set PRODUCTION=true && nodemon ./src/app.js",
+    "test": "jest"
   },
   "dependencies": {
     "cookie-parser": "~1.4.4",
@@ -19,6 +20,7 @@
   },
   "devDependencies": {
     "@architect/sandbox": "^3.3.7",
+    "jest": "^29.5.0",
     "nodemon": "^2.0.22"
   }
 }
