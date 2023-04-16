@@ -9,10 +9,11 @@ const PORT = process.env.PORT || 8080
 const app = express();
 
 app.use(errorHandler);
+
 app.use(cors({
-    origin: `${process.env.DEVELOPMENT ? 
-        'http://localhost:3000'  :
-        'https://products-catalog-frontend-git-main-ruslangunder-gmailcom.vercel.app'}`
+    origin: `${process.env.DEVELOPMENT ?
+        'http://localhost:3000' :
+        'https://products-catalog-frontend.vercel.app/'}`
 }));
 app.use(express.json())
 app.use('/api', productRouter)
