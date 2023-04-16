@@ -1,7 +1,7 @@
 const express = require('express');
-const productRouter = require('./routes/product_routes')
+const productRouter = require('./src/routes/product_routes')
 const cors = require('cors');
-const errorHandler = require('./middlewares/errorHandler');
+const errorHandler = require('./src/middlewares/errorHandler');
 
 
 const PORT = process.env.PORT || 8080
