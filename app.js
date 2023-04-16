@@ -9,7 +9,7 @@ const app = express();
 app.use(cors({
     origin: `${process.env.DEVELOPMENT ? 
         'http://localhost:3000' :
-        'https://product-catalog-front-git-main-ruslangunder-gmailcom.vercel.app'}`
+        'https://products-catalog-frontend.vercel.app'}`
 }));
 
 app.use(express.json())
