@@ -1,9 +1,9 @@
-const { Model } = require('objection')
+const { Model } = require('objection');
 
 class ProductImage extends Model {
-  static get tableName() {
-    return 'product_images'
-  }
+    static get tableName() {
+        return 'product_images';
+    }
 }
 
-module.exports = ProductImage
+module.exports = ProductImage;
