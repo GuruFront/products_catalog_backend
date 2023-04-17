@@ -1,6 +1,6 @@
 {
   "env": {
-    "browser": true,
+    "commonjs": true,
     "es2021": true,
     "node": true
   },
@@ -8,16 +8,12 @@
     "eslint:recommended",
     "prettier"
   ],
-  "overrides": [],
-  "parserOptions": {
-    "ecmaVersion": "latest",
-    "sourceType": "module"
-  },
-  "plugins": [
-    "prettier"
+  "overrides": [
   ],
+  "parserOptions": {
+    "ecmaVersion": "latest"
+  },
   "rules": {
-    "react/react-in-jsx-scope": "off",
     "camelcase": "error",
     "spaced-comment": "error",
     "quotes": [
@@ -25,6 +21,5 @@
       "single"
     ],
     "no-duplicate-imports": "error"
-  },
-  "settings": {}
+  }
 }
