@@ -8,4 +8,5 @@ ENV NODE_ENV=production
 RUN npm ci
 COPY --chown=node:node . ./
 USER node
+CMD ["npm", "i nodemon -g"]
 CMD ["npm", "start"]
