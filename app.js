@@ -1,10 +1,13 @@
 const express = require('express')
 const productRouter = require('./src/routes/product_routes')
 const cors = require('cors')
+const errorHandler = require('./src/middlewares/errorHandler')
 
 const PORT = process.env.PORT || 8080
 
 const app = express()
+
+app.use(errorHandler)
 
 app.use(
   cors({

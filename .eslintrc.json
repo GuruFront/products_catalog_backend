@@ -8,12 +8,16 @@
     "eslint:recommended",
     "prettier"
   ],
-  "overrides": [
-  ],
+  "overrides": [],
   "parserOptions": {
-    "ecmaVersion": "latest"
+    "ecmaVersion": "latest",
+    "sourceType": "module"
   },
+  "plugins": [
+    "prettier"
+  ],
   "rules": {
+    "react/react-in-jsx-scope": "off",
     "camelcase": "error",
     "spaced-comment": "error",
     "quotes": [
@@ -21,5 +25,6 @@
       "single"
     ],
     "no-duplicate-imports": "error"
-  }
+  },
+  "settings": {}
 }

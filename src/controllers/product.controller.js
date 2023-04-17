@@ -1,16 +1,13 @@
 const Product = require('../models/Product')
 const knex = require('../services/db')
 const { Model } = require('objection')
-const onError = require('../utils/onError')
 
 Model.knex(knex)
 
 class ProductController {
-  async getProductsByPage(req, res) {
+  async getProductsByPage(req, res, next) {
     try {
       const { filters, searchText, page, sortByYear = '' } = req.body
-
-      if (typeof page === 'undefined') throw new onError(404, 'Page is required')
 
       const itemPerPage = 18
       const currentPage = page - 1
@@ -39,21 +36,21 @@ class ProductController {
         page: parseInt(page, 10) ?? 0,
         pagesCount: Math.ceil(allItemsCount.count / itemPerPage),
       })
-    } catch (error) {
-      res.status(404).json({
-        products: [],
-        page: 0,
-        pagesCount: 0,
-      })
+    } catch (err) {
+      next(err)
     }
   }
 
-  async getProductCategories(req, res) {
-    const categories = await Product.query().distinct('mastercategory')
+  async getProductCategories(req, res, next) {
+    try {
+      const categories = await Product.query().distinct('mastercategory')
 
-    res.json({
-      categories: categories.map((i) => i.mastercategory),
-    })
+      res.json({
+        categories: categories.map((i) => i.mastercategory),
+      })
+    } catch (err) {
+      next(err)
+    }
   }
 }
 
