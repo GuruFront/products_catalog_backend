@@ -14,7 +14,11 @@ The ./db/ folder contains commands for creating tables and sample data for it.
 ### `npm run dev`
 
 Runs the server in the development mode.
-Server started successfully if you see {"server":"works"} there http://localhost:8080/api
+
+[//]: # ([## Swagger )
+
+[//]: # ()
+[//]: # (You can check api info here http://localhost:8080/api-docs](http://localhost:8080/api-docs))
 
 ### `npm start`
 
