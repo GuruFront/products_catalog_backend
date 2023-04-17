@@ -9,7 +9,7 @@ describe('ProductController', () => {
       const res = { status: jest.fn().mockReturnThis(), json: jest.fn() }
       await ProductController.getProductsByPage(req, res)
       expect(res.status).toHaveBeenCalledWith(404)
-      expect(res.json).toHaveBeenCalledWith({ products: [], page: 0, pagesCount: 0 })
+      expect(res.json).toHaveBeenCalledWith({ products: [], page: 1, pagesCount: 0 })
     })
 
     // it('should return products, page and pagesCount', async () => {
