@@ -18,13 +18,16 @@
       "pre-commit": "lint-staged"
     }
   },
-  "eslintIgnore": ["*.test.js"],
+  "eslintIgnore": [
+    "*.test.js"
+  ],
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
     "dotenv": "^16.0.3",
     "express": "~4.16.1",
+    "kill-port": "^2.0.1",
     "knex": "^2.4.2",
     "morgan": "~1.9.1",
     "objection": "^3.0.1",
