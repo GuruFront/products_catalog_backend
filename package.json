@@ -5,17 +5,19 @@
   "scripts": {
     "dev": "set DEVELOPMENT=true && nodemon app.js",
     "start": "set PRODUCTION=true && nodemon app.js",
-    "lint": "eslint **.js",
+    "lint": "eslint {src/**/*.js,!**/*.test.js,app.js}",
     "test": "jest",
-    "lint:fix": "eslint --fix src/**/*.js",
-    "format": "prettier --write src/**/*.js --config ./.prettierrc.json",
-    "configure-husky": "npx husky install && npx husky add .husky/pre-commit \"npx --no-install lint-staged\""
+    "lint:fix": "eslint --fix {src/**/*.js,!**/*.test.js,app.js}",
+    "format": "prettier --write {src/**/*.js,!**/*.test.js,app.js} --config ./.prettierrc.json",
+    "configure-husky-pre-commit": "npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
+    "configure-husky-pre-push": "npx husky add .husky/pre-push \"npm test -- --watchAll=false\""
   },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
+  "eslintIgnore": ["*.test.js"],
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
