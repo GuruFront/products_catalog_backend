@@ -1,0 +1,7 @@
+{
+  "*.js": [
+    "eslint --fix {src/**/*.js,!**/*.test.js,app.js}",
+    "prettier --write {src/**/*.js,!**/*.test.js,app.js} --config ./.prettierrc.json",
+    "git add"
+  ]
+}
