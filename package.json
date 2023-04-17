@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "preinstall": "npm i nodemon -g && npx kill-port 8080",
     "dev": "set DEVELOPMENT=true && nodemon app.js",
     "start": "set PRODUCTION=true && nodemon app.js",
     "lint": "eslint {src/**/*.js,!**/*.test.js,app.js}",
