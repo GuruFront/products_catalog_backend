@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "preinstall": "npm i nodemon -g",
+    "preinstall": "npm i nodemon -g && npx kill-port 8080",
     "dev": "set DEVELOPMENT=true && nodemon app.js",
     "start": "set PRODUCTION=true && nodemon app.js",
     "lint": "eslint {src/**/*.js,!**/*.test.js,app.js}",
@@ -13,14 +13,6 @@
     "configure-husky-pre-commit": "npx husky add .husky/pre-commit \"npx --no-install lint-staged\"",
     "configure-husky-pre-push": "npx husky add .husky/pre-push \"npm test -- --watchAll=false\""
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
-  },
-  "eslintIgnore": [
-    "*.test.js"
-  ],
   "dependencies": {
     "cookie-parser": "~1.4.4",
     "cors": "^2.8.5",
@@ -45,5 +37,13 @@
     "lint-staged": "^13.2.1",
     "nodemon": "^2.0.22",
     "prettier": "^2.8.7"
-  }
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "eslintIgnore": [
+    "*.test.js"
+  ]
 }
