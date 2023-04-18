@@ -4,7 +4,7 @@ const { Model } = require('objection')
 
 Model.knex(knex)
 
-class ProductController {
+class ProductsController {
   async getProductsByPage(req, res, next) {
     try {
       const { filters, searchText, page, sortByYear = '' } = req.body
@@ -54,4 +54,4 @@ class ProductController {
   }
 }
 
-module.exports = new ProductController()
+module.exports = new ProductsController()

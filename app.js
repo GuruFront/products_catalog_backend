@@ -11,11 +11,7 @@ app.use(errorHandler)
 
 app.use(
   cors({
-    origin: `${
-      process.env.DEVELOPMENT
-        ? 'http://localhost:3000'
-        : 'https://products-catalog-frontend.vercel.app'
-    }`,
+    origin: `${process.env.HOST}`,
   }),
 )
 app.use(express.json())
