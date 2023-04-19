@@ -9,11 +9,6 @@ In the project directory:
 If you don't have a database, you can create a sample database for development. <br>
 The ./db/ folder contains commands for creating tables and sample data for it.
 
-## env.DEV 
-
-Create a.env.DEV file in the root folder. <br> 
-Edit it like .env but with your local data.
-
 ## Frontend
 
 Repo link is [products_catalog_frontend](https://github.com/GuruFront/products_catalog_frontend)
