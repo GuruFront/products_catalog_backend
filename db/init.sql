@@ -16,3 +16,12 @@ CREATE TABLE product_images(
  	product_img text
 );
 
+COPY products
+FROM '{your absolute path}\products.csv'
+DELIMITER ','
+CSV HEADER;
+
+COPY product_images
+FROM '{your absolute path}\product_images.csv'
+DELIMITER ','
+CSV HEADER;
