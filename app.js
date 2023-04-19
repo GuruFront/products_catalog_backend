@@ -11,7 +11,7 @@ app.use(errorHandler)
 
 app.use(
   cors({
-    origin: `${process.env.HOST}`,
+    origin: `${process.env.FRONTEND_HOST}`,
   }),
 )
 app.use(express.json())
